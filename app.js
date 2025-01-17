@@ -6,6 +6,7 @@ const audio = document.querySelector(".audio");
 const backBtn = document.querySelector(".backBtn");
 const nextBtn = document.querySelector(".nextBtn");
 const line = document.querySelector(".play-lenght");
+const musicInfo = document.querySelector(".music_info");
 const playTimeVal = document.querySelector(".play-time");
 const basicTimeVal = document.querySelector(".basic-time");
 const playMin = document.querySelector(".play-min");
@@ -14,6 +15,10 @@ const basicPlayMin = document.querySelector(".basic-play-min");
 const basicPlaySec = document.querySelector(".basic-play-sec");
 const bar = document.querySelector(".bar");
 const list = document.querySelector(".list");
+const amr = document.querySelector(".amr");
+const type = document.querySelector(".type");
+const miyagi = document.querySelector(".miyagi");
+const neko = document.querySelector(".neko");
 const closeList = document.querySelector(".close-list");
 
 const musics = ["Amr_Diab_Nour_El_Ein", "Nekoglai", "TypeLuv", "WERTUS_MIYAGI"];
@@ -36,7 +41,30 @@ const change = () => {
   cover.setAttribute("src", `img/${musics[order]}.jpg`);
   title.textContent = musics[order];
 };
-
+amr.addEventListener("click", () => {
+  order = 0;
+  change();
+  body.classList.add("play");
+  audio.play();
+});
+neko.addEventListener("click", () => {
+  order = 1;
+  change();
+  body.classList.add("play");
+  audio.play();
+});
+type.addEventListener("click", () => {
+  order = 2;
+  change();
+  body.classList.add("play");
+  audio.play();
+});
+miyagi.addEventListener("click", () => {
+  order = 3;
+  change();
+  body.classList.add("play");
+  audio.play();
+});
 change();
 controlBtn.addEventListener("click", () => {
   if (!body.classList.contains("play")) {
@@ -57,7 +85,7 @@ backBtn.addEventListener("click", () => {
     audio.pause();
   }
 });
-nextBtn.addEventListener("click", () => {
+const nextClick = () => {
   order = order < 3 ? order + 1 : (order = 0);
   change();
   if (body.classList.contains("play")) {
@@ -65,6 +93,9 @@ nextBtn.addEventListener("click", () => {
   } else {
     audio.pause();
   }
+};
+nextBtn.addEventListener("click", () => {
+  nextClick();
 });
 
 const playTime = (e) => {
@@ -101,10 +132,9 @@ const playTime = (e) => {
 };
 
 audio.addEventListener("timeupdate", playTime);
-
+audio.addEventListener("ended", nextClick);
 musicInfo.addEventListener("click", (e) => {
   var width = e.offsetX;
   var allWidth = e.currentTarget.offsetWidth;
-
   audio.currentTime = (width * audio.duration) / allWidth;
 });

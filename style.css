@@ -54,6 +54,12 @@ body {
   padding: 30px 10px;
   padding-top: 50px;
 }
+.music-list li{
+  cursor: pointer;
+  /* border-top: 2px solid rgb(179, 179, 179) ;
+  border-bottom: 2px solid rgb(179, 179, 179) ; */
+}
+
 .close-list{
   position: absolute;
   right: 20px;
