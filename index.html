@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player with Particles.js</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="particles-js"></div>
+
+    <audio class="audio" src=""></audio>
+    <div class="music_player">
+      <div class="bar"><i class="fa-solid fa-bars"></i></div>
+      <div class="list">
+        <div class="close-list">
+          <i class="fa-solid fa-x"></i>
+        </div>
+        <h2 class="list-title">Musics</h2>
+        <div class="search">
+          <input type="text" placeholder="Search" />
+          <button class="searchBtn"><i class="fas fa-search"></i></button>
+          <div class="hr"></div>
+        </div>
+        <ul class="music-list">
+          <li>Amr_Diab_Nour_El_Ein</li>
+          <li>Nekoglai</li>
+          <li>TypeLuv</li>
+          <li>WERTUS_MIYAGI</li>
+        </ul>
+      </div>
+      <h1 class="title">Music name</h1>
+      <div class="img_box">
+        <img class="cover" src="" alt="" />
+      </div>
+      <input type="range" />
+      <div class="music_info">
+        <div class="times">
+          <p class="play-time">
+            <span class="play-min">0</span> : <span class="play-sec">00</span>
+          </p>
+          <p class="basic-time">
+            <span class="basic-play-min">0</span> :
+            <span class="basic-play-sec">00</span>
+          </p>
+        </div>
+        <div class="basic-length">
+          <div class="play-lenght"></div>
+        </div>
+      </div>
+      <div class="control">
+        <span class="backBtn"><i class="fa-solid fa-backward"></i></span>
+        <span class="pause-play">
+          <i class="fa-solid fa-pause pause_icon"></i>
+          <i class="fa-solid fa-play play_icon"></i>
+        </span>
+        <span class="nextBtn"><i class="fa-solid fa-forward"></i></span>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
