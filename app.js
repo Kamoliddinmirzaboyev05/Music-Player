@@ -11,6 +11,7 @@ const playTimeVal = document.querySelector(".play-time");
 const basicTimeVal = document.querySelector(".basic-time");
 const playMin = document.querySelector(".play-min");
 const playSec = document.querySelector(".play-sec");
+const musicPlayer = document.querySelector(".music_player");
 const basicPlayMin = document.querySelector(".basic-play-min");
 const basicPlaySec = document.querySelector(".basic-play-sec");
 const bar = document.querySelector(".bar");
@@ -27,9 +28,14 @@ const musics = ["Amr_Diab_Nour_El_Ein", "Nekoglai", "TypeLuv", "WERTUS_MIYAGI"];
 
 bar.addEventListener("click", () => {
   list.style.left = "0px";
-
+ 
   closeList.addEventListener("click", () => {
     list.style.left = "-250px";
+  });
+  window.addEventListener("click", (e) => {
+    if (e.target.className == "music_player" || e.target.tagName == "BODY") {
+      list.style.left = "-250px";
+    }
   });
 });
 
