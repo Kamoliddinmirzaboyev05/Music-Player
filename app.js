@@ -20,6 +20,7 @@ const amr = document.querySelector(".amr");
 const type = document.querySelector(".type");
 const miyagi = document.querySelector(".miyagi");
 const neko = document.querySelector(".neko");
+const voice = document.querySelector(".voice");
 const closeList = document.querySelector(".close-list");
 
 const musics = ["Amr_Diab_Nour_El_Ein", "Nekoglai", "TypeLuv", "WERTUS_MIYAGI"];
@@ -28,7 +29,7 @@ const musics = ["Amr_Diab_Nour_El_Ein", "Nekoglai", "TypeLuv", "WERTUS_MIYAGI"];
 
 bar.addEventListener("click", () => {
   list.style.left = "0px";
- 
+
   closeList.addEventListener("click", () => {
     list.style.left = "-250px";
   });
@@ -67,12 +68,13 @@ type.addEventListener("click", () => {
 });
 miyagi.addEventListener("click", () => {
   order = 3;
+
   change();
   body.classList.add("play");
   audio.play();
 });
 change();
-controlBtn.addEventListener("click", () => {
+const controlClick = () => {
   if (!body.classList.contains("play")) {
     body.classList.add("play");
     audio.play();
@@ -80,9 +82,11 @@ controlBtn.addEventListener("click", () => {
     body.classList.remove("play");
     audio.pause();
   }
+};
+controlBtn.addEventListener("click", () => {
+  controlClick();
 });
-backBtn.addEventListener("click", () => {
-  controlBtn.click();
+const backClick = () => {
   order = order > 0 ? order - 1 : (order = 3);
   change();
   if (body.classList.contains("play")) {
@@ -90,6 +94,9 @@ backBtn.addEventListener("click", () => {
   } else {
     audio.pause();
   }
+};
+backBtn.addEventListener("click", () => {
+  backClick();
 });
 const nextClick = () => {
   order = order < 3 ? order + 1 : (order = 0);
@@ -143,4 +150,20 @@ musicInfo.addEventListener("click", (e) => {
   var width = e.offsetX;
   var allWidth = e.currentTarget.offsetWidth;
   audio.currentTime = (width * audio.duration) / allWidth;
+});
+
+voice.addEventListener("input", () => {
+  audio.volume = voice.value / 100;
+});
+
+window.addEventListener("keypress", (e) => {
+  console.log(e.key);
+
+  if (e.key == ".") {
+    nextClick();
+  } else if (e.key == ",") {
+    backClick();
+  } else if (e.key == " ") {
+    controlClick();
+  }
 });
